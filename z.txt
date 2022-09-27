@@ -1,0 +1,20 @@
+<?php
+$username = $_POST['PHP_AUTH_USER'] ;
+$password = $_POST['PHP_AUTH_PW'];
+if(($_POST['PHP_AUTH_USER'] == $username)&& ($_POST['PHP_AUTH_PW'] == $password))
+{
+echo apache_setenv("PHP_AUTH_USER",$username);
+echo apache_setenv("PHP_AUTH_PW",$password);
+echo putenv("PHP_AUTH_USER =$username");
+echo putenv("PHP_AUTH_PW = $password");
+$PHP_AUTH_USER =$username;
+$PHP_AUTH_PW = $password;
+$_SERVER['PHP_AUTH_USER'] =$username;
+$_SERVER['PHP_AUTH_PW'] = $password;
+}
+?>
+<form method="post">
+<p>Username : <input type="textbox" name="PHP_AUTH_USER" id="PHP_AUTH_USER" /><br />
+<p>Password : <input type="password" name="PHP_AUTH_PW" id="PHP_AUTH_PW" /><br />
+<p> <input type="submit" name="submit" />
+</form>
